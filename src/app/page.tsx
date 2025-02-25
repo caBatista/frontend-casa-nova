@@ -1,5 +1,13 @@
-import styles from "./page.module.css";
+import React from "react";
+import ProductGrid from "../components/ProductGrid/ProductGrid";
 
-export default function Home() {
-  return <div className={styles.page}></div>;
-}
+const HomePage: React.FC = () => {
+  return (
+    <div>
+      <h1>Produtos</h1>
+      <ProductGrid />
+    </div>
+  );
+};
+
+export default HomePage;

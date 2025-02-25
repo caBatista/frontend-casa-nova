@@ -1,0 +1,20 @@
+.product-image {
+  border-radius: 20px;
+  height: 295px;
+  width: 295px;
+  object-fit: cover;
+  max-width: 295px;
+  max-height: 295px;
+  width: 295px;
+  height: 295px;
+}
+
+.product-card-content {
+  padding: 16px;
+}
+
+.product-title {
+  font-family: "DM Sans";
+  font-size: 20px;
+  font-weight: "bold";
+}
