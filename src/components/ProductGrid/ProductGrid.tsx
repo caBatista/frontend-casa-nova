@@ -1,46 +1,14 @@
-"use client";
-
 import * as React from "react";
-import { fetchProducts, Product } from "../../services/productService";
 import Grid from "@mui/material/Grid2";
-import {
-  CardContent,
-  CardMedia,
-  Typography,
-  CircularProgress,
-} from "@mui/material";
+import { CardContent, CardMedia, Typography } from "@mui/material";
 import "./ProductGrid.css";
+import { Product } from "@/services/productService";
 
-const ProductGrid: React.FC = () => {
-  const [products, setProducts] = React.useState<Product[]>([]);
-  const [isClient, setIsClient] = React.useState(false);
-  const [loading, setLoading] = React.useState(true);
+interface ProductGridProps {
+  products: Product[];
+}
 
-  React.useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  React.useEffect(() => {
-    if (isClient) {
-      const loadProducts = async () => {
-        try {
-          const products = await fetchProducts();
-          setProducts(products);
-        } catch (error) {
-          console.error("Erro ao carregar produtos", error);
-        } finally {
-          setLoading(false);
-        }
-      };
-
-      loadProducts();
-    }
-  }, [isClient]);
-
-  if (!isClient || loading) {
-    return <CircularProgress />;
-  }
-
+const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
   return (
     <Grid container spacing={4}>
       {products.map((product) => (
