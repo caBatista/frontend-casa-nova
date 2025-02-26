@@ -29,6 +29,8 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
                 fontFamily: "DM Sans",
                 fontSize: "20px",
                 fontWeight: "bold",
+                wordWrap: "break-word",
+                overflowWrap: "break-word",
               }}
             >
               {product.name}
